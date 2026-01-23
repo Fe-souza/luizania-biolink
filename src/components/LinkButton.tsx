@@ -2,14 +2,15 @@ import { ReactNode } from "react";
 
 interface LinkButtonProps {
   href: string;
-  icon: ReactNode;
+  icon?: ReactNode;
+  image?: string;
   title: string;
   subtitle?: string;
   variant?: "default" | "featured" | "whatsapp";
   delay?: number;
 }
 
-const LinkButton = ({ href, icon, title, subtitle, variant = "default", delay = 0 }: LinkButtonProps) => {
+const LinkButton = ({ href, icon, image, title, subtitle, variant = "default", delay = 0 }: LinkButtonProps) => {
   const baseStyles = "group relative w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 animate-fade-up overflow-hidden";
   
   const variantStyles = {
@@ -29,14 +30,24 @@ const LinkButton = ({ href, icon, title, subtitle, variant = "default", delay = 
       {/* Shimmer effect on hover */}
       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       
-      {/* Icon container */}
-      <div className={`
-        relative flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-xl
-        transition-transform duration-300 group-hover:scale-110
-        ${variant === "featured" ? "bg-white/20" : variant === "whatsapp" ? "bg-emerald-500/20" : "bg-gradient-gold text-primary-foreground"}
-      `}>
-        {icon}
-      </div>
+      {/* Icon or Image container */}
+      {image ? (
+        <div className="relative flex-shrink-0 w-12 h-12 rounded-xl overflow-hidden transition-transform duration-300 group-hover:scale-110">
+          <img 
+            src={image} 
+            alt={title} 
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ) : (
+        <div className={`
+          relative flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-xl
+          transition-transform duration-300 group-hover:scale-110
+          ${variant === "featured" ? "bg-white/20" : variant === "whatsapp" ? "bg-emerald-500/20" : "bg-gradient-gold text-primary-foreground"}
+        `}>
+          {icon}
+        </div>
+      )}
 
       {/* Text content */}
       <div className="flex-1 min-w-0 text-left">
