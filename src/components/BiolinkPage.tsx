@@ -1,4 +1,3 @@
-import { BookOpen, ShoppingBag, MessageCircle, GraduationCap } from "lucide-react";
 import ProfileAvatar from "./ProfileAvatar";
 import ProfileBio from "./ProfileBio";
 import LinkButton from "./LinkButton";
@@ -8,28 +7,28 @@ const BiolinkPage = () => {
   const links = [
     {
       href: "https://go.hotmart.com/K102635932P",
-      icon: <GraduationCap className="w-6 h-6" />,
+      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=100&h=100&fit=crop",
       title: "Aula Lash Lifting Online",
       subtitle: "Aprenda a técnica do zero ao profissional",
       variant: "featured" as const,
     },
     {
       href: "https://wa.me/c/554999499028",
-      icon: <ShoppingBag className="w-6 h-6" />,
+      image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=100&h=100&fit=crop",
       title: "Loja JK Beauty",
       subtitle: "Produtos premium para cílios e sobrancelhas",
       variant: "default" as const,
     },
     {
       href: "https://chk.eduzz.com/VWGZBG4V07",
-      icon: <BookOpen className="w-6 h-6" />,
+      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=100&h=100&fit=crop",
       title: "E-book EDUCADORAS",
       subtitle: "Guia completo para se tornar uma expert",
       variant: "default" as const,
     },
     {
       href: "https://wa.me/message/ID7UBKSHQG5TN1",
-      icon: <MessageCircle className="w-6 h-6" />,
+      image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=100&h=100&fit=crop",
       title: "WhatsApp Informações",
       subtitle: "Fale diretamente comigo",
       variant: "whatsapp" as const,
@@ -58,7 +57,7 @@ const BiolinkPage = () => {
               <LinkButton
                 key={link.title}
                 href={link.href}
-                icon={link.icon}
+                image={link.image}
                 title={link.title}
                 subtitle={link.subtitle}
                 variant={link.variant}
