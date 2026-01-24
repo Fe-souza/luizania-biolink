@@ -109,8 +109,9 @@
 }
 
 @layer utilities {
+  /* Existing animations */
   .animate-shimmer {
-    animation: shimmer 3s ease-in-out infinite;
+    animation: shimmer 2s infinite linear;
   }
 
   .animate-float {
@@ -118,11 +119,12 @@
   }
 
   .animate-pulse-gold {
-    animation: pulse-gold 2s ease-in-out infinite;
+    animation: pulse-gold 3s ease-in-out infinite;
   }
 
   .animate-fade-up {
     animation: fade-up 0.6s ease-out forwards;
+    opacity: 0;
   }
 
   .animate-scale-in {
@@ -132,83 +134,208 @@
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
   }
-}
 
-@keyframes shimmer {
-  0%, 100% {
-    background-position: -200% center;
+  /* Organic Fluid animations */
+  .animate-particle {
+    animation: particle-float 20s ease-in-out infinite;
   }
-  50% {
-    background-position: 200% center;
-  }
-}
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+  .animate-blob-1 {
+    animation: blob-morph-1 25s ease-in-out infinite;
   }
-  50% {
-    transform: translateY(-10px);
-  }
-}
 
-@keyframes pulse-gold {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(38 70% 55% / 0.4);
+  .animate-blob-2 {
+    animation: blob-morph-2 30s ease-in-out infinite;
   }
-  50% {
-    box-shadow: 0 0 40px hsl(38 70% 55% / 0.6);
-  }
-}
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  .animate-blob-3 {
+    animation: blob-morph-3 20s ease-in-out infinite;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
+  .animate-blob-4 {
+    animation: blob-morph-4 22s ease-in-out infinite;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
-@keyframes glow {
-  from {
-    box-shadow: 0 0 20px hsl(38 70% 55% / 0.3);
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
   }
-  to {
-    box-shadow: 0 0 30px hsl(38 70% 55% / 0.5);
-  }
-}
 
-/* Sparkle effect for background */
-.sparkle-bg {
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, hsl(38 70% 55% / 0.3), transparent),
-    radial-gradient(2px 2px at 40px 70px, hsl(38 70% 55% / 0.2), transparent),
-    radial-gradient(1px 1px at 90px 40px, hsl(38 70% 55% / 0.4), transparent),
-    radial-gradient(2px 2px at 130px 80px, hsl(38 70% 55% / 0.2), transparent),
-    radial-gradient(1px 1px at 160px 120px, hsl(38 70% 55% / 0.3), transparent);
-  background-size: 200px 200px;
-  animation: sparkle-move 20s linear infinite;
-}
-
-@keyframes sparkle-move {
-  from {
-    background-position: 0 0;
+  .animate-spin-reverse {
+    animation: spin-reverse 15s linear infinite;
   }
-  to {
-    background-position: 200px 200px;
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-float-organic {
+    animation: float-organic 8s ease-in-out infinite;
+  }
+
+  /* Keyframes */
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes glow {
+    from { box-shadow: 0 0 20px hsla(var(--gold), 0.4); }
+    to { box-shadow: 0 0 40px hsla(var(--gold), 0.6); }
+  }
+
+  /* Organic animations */
+  @keyframes particle-float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translate(30px, -50px) scale(1.2);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-20px, -100px) scale(0.8);
+      opacity: 0.5;
+    }
+    75% {
+      transform: translate(40px, -50px) scale(1.1);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes blob-morph-1 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    25% {
+      transform: translate(50px, -30px) scale(1.1) rotate(90deg);
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    50% {
+      transform: translate(20px, 50px) scale(0.9) rotate(180deg);
+      border-radius: 50% 60% 50% 60% / 40% 30% 60% 50%;
+    }
+    75% {
+      transform: translate(-30px, 20px) scale(1.05) rotate(270deg);
+      border-radius: 40% 60% 60% 40% / 60% 50% 40% 50%;
+    }
+  }
+
+  @keyframes blob-morph-2 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+      border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+    }
+    33% {
+      transform: translate(-40px, 30px) scale(1.15) rotate(120deg);
+      border-radius: 60% 40% 30% 70% / 40% 60% 60% 40%;
+    }
+    66% {
+      transform: translate(30px, -40px) scale(0.85) rotate(240deg);
+      border-radius: 30% 60% 70% 40% / 60% 40% 40% 60%;
+    }
+  }
+
+  @keyframes blob-morph-3 {
+    0%, 100% {
+      transform: translateX(-50%) scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateX(-50%) scale(1.2);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes blob-morph-4 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(40px, -30px) scale(1.1);
+    }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+  }
+
+  @keyframes float-organic {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(5px, -10px) scale(1.1);
+    }
+    50% {
+      transform: translate(-5px, -5px) scale(0.9);
+    }
+    75% {
+      transform: translate(8px, -8px) scale(1.05);
+    }
+  }
+
+  @keyframes shimmer-border {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  .sparkle-bg {
+    background-image: radial-gradient(2px 2px at 20px 30px, hsla(var(--gold), 0.4), transparent),
+                      radial-gradient(2px 2px at 40px 70px, hsla(var(--rose), 0.3), transparent),
+                      radial-gradient(1px 1px at 90px 40px, hsla(var(--gold-light), 0.5), transparent),
+                      radial-gradient(2px 2px at 130px 80px, hsla(var(--gold), 0.3), transparent),
+                      radial-gradient(1px 1px at 160px 30px, hsla(var(--rose-light), 0.4), transparent);
+    background-size: 200px 100px;
+    animation: sparkle-move 8s linear infinite;
+  }
+
+  @keyframes sparkle-move {
+    from { background-position: 0 0; }
+    to { background-position: 200px 100px; }
   }
 }
