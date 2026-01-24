@@ -19,11 +19,11 @@ const OrganicLinkCard = ({
   const getVariantStyles = () => {
     switch (variant) {
       case "featured":
-        return "bg-gradient-to-br from-rose-500/20 via-purple-500/20 to-pink-500/20 border-rose-300/40 hover:border-rose-300/70 hover:shadow-[0_0_40px_rgba(244,114,182,0.3)]";
+        return "bg-gradient-to-br from-amber-500/25 via-yellow-500/20 to-orange-500/20 border-amber-400/50 hover:border-amber-300/80 hover:shadow-[0_0_40px_rgba(251,191,36,0.35)]";
       case "whatsapp":
         return "bg-gradient-to-br from-emerald-500/15 via-teal-500/15 to-green-500/15 border-emerald-400/40 hover:border-emerald-400/70 hover:shadow-[0_0_40px_rgba(52,211,153,0.3)]";
       default:
-        return "bg-white/10 border-white/20 hover:border-white/40 hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]";
+        return "bg-amber-900/10 border-amber-400/25 hover:border-amber-400/50 hover:bg-amber-900/20 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)]";
     }
   };
 
@@ -50,10 +50,10 @@ const OrganicLinkCard = ({
         className="absolute -inset-[1px] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
           background: variant === "featured" 
-            ? "linear-gradient(90deg, hsla(340, 82%, 76%, 0.5), hsla(280, 70%, 70%, 0.5), hsla(340, 82%, 76%, 0.5))"
+            ? "linear-gradient(90deg, hsla(45, 90%, 60%, 0.6), hsla(35, 85%, 55%, 0.6), hsla(45, 90%, 60%, 0.6))"
             : variant === "whatsapp"
             ? "linear-gradient(90deg, hsla(160, 70%, 50%, 0.5), hsla(140, 70%, 60%, 0.5), hsla(160, 70%, 50%, 0.5))"
-            : "linear-gradient(90deg, hsla(0, 0%, 100%, 0.3), hsla(280, 70%, 70%, 0.3), hsla(0, 0%, 100%, 0.3))",
+            : "linear-gradient(90deg, hsla(45, 90%, 60%, 0.4), hsla(35, 85%, 55%, 0.4), hsla(45, 90%, 60%, 0.4))",
           backgroundSize: "200% 100%",
           animation: "shimmer-border 3s linear infinite",
           filter: "blur(2px)",
@@ -68,10 +68,10 @@ const OrganicLinkCard = ({
             className="absolute inset-0 rounded-2xl rotate-3 transition-all duration-500 group-hover:rotate-6"
             style={{
               background: variant === "featured" 
-                ? "linear-gradient(135deg, hsla(340, 82%, 76%, 0.6), hsla(280, 70%, 70%, 0.6))"
+                ? "linear-gradient(135deg, hsla(45, 90%, 60%, 0.7), hsla(35, 85%, 55%, 0.7))"
                 : variant === "whatsapp"
                 ? "linear-gradient(135deg, hsla(160, 70%, 50%, 0.6), hsla(140, 70%, 60%, 0.6))"
-                : "linear-gradient(135deg, hsla(0, 0%, 100%, 0.3), hsla(280, 70%, 70%, 0.3))",
+                : "linear-gradient(135deg, hsla(45, 90%, 60%, 0.4), hsla(35, 85%, 55%, 0.4))",
             }}
           />
           <img 

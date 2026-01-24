@@ -4,7 +4,7 @@ const OrganicProfileBio = () => {
       <h1 
         className="font-display text-4xl md:text-5xl font-semibold tracking-wide"
         style={{
-          background: "linear-gradient(135deg, #fff 0%, hsla(340, 82%, 85%, 1) 50%, hsla(280, 70%, 80%, 1) 100%)",
+          background: "linear-gradient(135deg, #fff 0%, hsla(45, 90%, 75%, 1) 50%, hsla(35, 85%, 65%, 1) 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
@@ -17,7 +17,7 @@ const OrganicProfileBio = () => {
         <p 
           className="font-light text-sm md:text-base tracking-[0.3em] uppercase"
           style={{
-            background: "linear-gradient(90deg, hsla(340, 82%, 76%, 0.9), hsla(280, 70%, 70%, 0.9))",
+            background: "linear-gradient(90deg, hsla(45, 90%, 70%, 0.95), hsla(35, 85%, 60%, 0.95))",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -27,11 +27,11 @@ const OrganicProfileBio = () => {
         </p>
         
         <p className="text-white/70 text-sm md:text-base max-w-xs mx-auto leading-relaxed">
-          CEO <span className="text-rose-300 font-medium">JK Beauty</span> • Empreendedora há 6+ anos
+          CEO <span className="text-amber-300 font-medium">JK Beauty</span> • Empreendedora há 6+ anos
           <br />
           Palestrante premiada em SC
           <br />
-          <span className="italic text-purple-300/90">Ensino mulheres a viverem de cílios</span>
+          <span className="italic text-yellow-200/90">Ensino mulheres a viverem de cílios</span>
         </p>
       </div>
 
@@ -40,19 +40,19 @@ const OrganicProfileBio = () => {
         <div 
           className="w-16 h-[2px] rounded-full"
           style={{
-            background: "linear-gradient(90deg, transparent, hsla(340, 82%, 76%, 0.6), transparent)",
+            background: "linear-gradient(90deg, transparent, hsla(45, 90%, 60%, 0.6), transparent)",
           }}
         />
         <div 
           className="w-3 h-3 rounded-full animate-pulse-slow"
           style={{
-            background: "linear-gradient(135deg, hsla(340, 82%, 76%, 0.8), hsla(280, 70%, 70%, 0.8))",
+            background: "linear-gradient(135deg, hsla(45, 90%, 60%, 0.9), hsla(35, 85%, 55%, 0.9))",
           }}
         />
         <div 
           className="w-16 h-[2px] rounded-full"
           style={{
-            background: "linear-gradient(90deg, transparent, hsla(280, 70%, 70%, 0.6), transparent)",
+            background: "linear-gradient(90deg, transparent, hsla(35, 85%, 55%, 0.6), transparent)",
           }}
         />
       </div>

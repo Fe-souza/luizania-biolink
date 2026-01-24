@@ -41,7 +41,7 @@ const OrganicBiolinkPage = () => {
     <div 
       className="min-h-screen relative overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #0f0f1a 0%, #1a1025 25%, #15152a 50%, #1a1530 75%, #0f0f1a 100%)",
+        background: "linear-gradient(135deg, #0f0f0a 0%, #1a1508 25%, #15130a 50%, #1a1205 75%, #0f0f0a 100%)",
       }}
     >
       {/* Fluid animated background */}

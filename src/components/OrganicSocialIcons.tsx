@@ -26,7 +26,7 @@ const OrganicSocialIcons = () => {
           <div 
             className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
-              background: "linear-gradient(135deg, hsla(340, 82%, 76%, 0.4), hsla(280, 70%, 70%, 0.4))",
+              background: "linear-gradient(135deg, hsla(45, 90%, 60%, 0.5), hsla(35, 85%, 55%, 0.5))",
               filter: "blur(8px)",
             }}
           />
