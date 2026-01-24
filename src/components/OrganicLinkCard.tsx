@@ -1,3 +1,5 @@
+import { useState, useRef, MouseEvent } from "react";
+
 interface OrganicLinkCardProps {
   href: string;
   image?: string;
@@ -15,95 +17,184 @@ const OrganicLinkCard = ({
   variant = "default", 
   delay = 0 
 }: OrganicLinkCardProps) => {
+  const cardRef = useRef<HTMLAnchorElement>(null);
+  const [transform, setTransform] = useState("");
+  const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
+  
+  const handleMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (!cardRef.current) return;
+    
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 8;
+    const rotateY = (centerX - x) / 8;
+    
+    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`);
+    setGlarePosition({
+      x: (x / rect.width) * 100,
+      y: (y / rect.height) * 100,
+    });
+  };
+  
+  const handleMouseLeave = () => {
+    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
+    setGlarePosition({ x: 50, y: 50 });
+  };
   
   const getVariantStyles = () => {
     switch (variant) {
       case "featured":
-        return "bg-gradient-to-br from-amber-500/25 via-yellow-500/20 to-orange-500/20 border-amber-400/50 hover:border-amber-300/80 hover:shadow-[0_0_40px_rgba(251,191,36,0.35)]";
+        return {
+          bg: "bg-gradient-to-br from-amber-500/20 via-yellow-500/15 to-orange-500/15",
+          border: "border-amber-400/40",
+          glow: "shadow-[0_20px_50px_-15px_rgba(251,191,36,0.4)]",
+          accent: "from-amber-400/60 via-yellow-300/40 to-amber-500/60",
+        };
       case "whatsapp":
-        return "bg-gradient-to-br from-emerald-500/15 via-teal-500/15 to-green-500/15 border-emerald-400/40 hover:border-emerald-400/70 hover:shadow-[0_0_40px_rgba(52,211,153,0.3)]";
+        return {
+          bg: "bg-gradient-to-br from-emerald-500/15 via-teal-500/10 to-green-500/10",
+          border: "border-emerald-400/35",
+          glow: "shadow-[0_20px_50px_-15px_rgba(52,211,153,0.35)]",
+          accent: "from-emerald-400/50 via-teal-300/30 to-emerald-500/50",
+        };
       default:
-        return "bg-amber-900/10 border-amber-400/25 hover:border-amber-400/50 hover:bg-amber-900/20 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)]";
+        return {
+          bg: "bg-amber-950/20",
+          border: "border-amber-400/20",
+          glow: "shadow-[0_20px_50px_-15px_rgba(251,191,36,0.2)]",
+          accent: "from-amber-400/30 via-yellow-300/20 to-amber-500/30",
+        };
     }
   };
 
+  const styles = getVariantStyles();
+
   return (
     <a
+      ref={cardRef}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={`
         group relative w-full flex items-center gap-4 p-5
-        backdrop-blur-xl rounded-3xl border
-        transition-all duration-500 ease-out
+        backdrop-blur-2xl rounded-3xl border
+        transition-all duration-200 ease-out
         animate-fade-up
-        hover:scale-[1.02] hover:-translate-y-1
-        ${getVariantStyles()}
+        ${styles.bg} ${styles.border}
       `}
       style={{ 
         animationDelay: `${delay}s`,
-        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+        transform: transform || "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
+        transformStyle: "preserve-3d",
+        willChange: "transform",
       }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      {/* Organic morphing border glow */}
+      {/* 3D depth shadow layer */}
       <div 
-        className="absolute -inset-[1px] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className={`absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl ${styles.glow}`}
+      />
+      
+      {/* Glare/shine effect that follows cursor */}
+      <div 
+        className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none"
+        style={{ transform: "translateZ(1px)" }}
+      >
+        <div 
+          className={`absolute w-[200%] h-[200%] opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+          style={{
+            background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(255,255,255,0.15) 0%, transparent 50%)`,
+            left: "-50%",
+            top: "-50%",
+          }}
+        />
+      </div>
+
+      {/* Animated border gradient */}
+      <div 
+        className={`absolute -inset-[1px] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}
         style={{
-          background: variant === "featured" 
-            ? "linear-gradient(90deg, hsla(45, 90%, 60%, 0.6), hsla(35, 85%, 55%, 0.6), hsla(45, 90%, 60%, 0.6))"
-            : variant === "whatsapp"
-            ? "linear-gradient(90deg, hsla(160, 70%, 50%, 0.5), hsla(140, 70%, 60%, 0.5), hsla(160, 70%, 50%, 0.5))"
-            : "linear-gradient(90deg, hsla(45, 90%, 60%, 0.4), hsla(35, 85%, 55%, 0.4), hsla(45, 90%, 60%, 0.4))",
-          backgroundSize: "200% 100%",
-          animation: "shimmer-border 3s linear infinite",
-          filter: "blur(2px)",
-          zIndex: -1,
+          background: `linear-gradient(135deg, ${variant === "whatsapp" ? "rgba(52,211,153,0.4)" : "rgba(251,191,36,0.4)"} 0%, transparent 40%, transparent 60%, ${variant === "whatsapp" ? "rgba(52,211,153,0.4)" : "rgba(251,191,36,0.4)"} 100%)`,
         }}
       />
 
-      {/* Image container with organic shape */}
+      {/* Image container with 3D pop effect */}
       {image && (
-        <div className="relative flex-shrink-0 w-14 h-14 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+        <div 
+          className="relative flex-shrink-0 w-14 h-14 transition-all duration-300 group-hover:scale-110"
+          style={{ transform: "translateZ(30px)" }}
+        >
           <div 
-            className="absolute inset-0 rounded-2xl rotate-3 transition-all duration-500 group-hover:rotate-6"
+            className="absolute -inset-1 rounded-2xl blur-md transition-opacity duration-300 opacity-0 group-hover:opacity-70"
             style={{
               background: variant === "featured" 
-                ? "linear-gradient(135deg, hsla(45, 90%, 60%, 0.7), hsla(35, 85%, 55%, 0.7))"
+                ? "linear-gradient(135deg, hsla(45, 90%, 60%, 0.6), hsla(35, 85%, 55%, 0.6))"
                 : variant === "whatsapp"
-                ? "linear-gradient(135deg, hsla(160, 70%, 50%, 0.6), hsla(140, 70%, 60%, 0.6))"
-                : "linear-gradient(135deg, hsla(45, 90%, 60%, 0.4), hsla(35, 85%, 55%, 0.4))",
+                ? "linear-gradient(135deg, hsla(160, 70%, 50%, 0.5), hsla(140, 70%, 60%, 0.5))"
+                : "linear-gradient(135deg, hsla(45, 90%, 60%, 0.3), hsla(35, 85%, 55%, 0.3))",
             }}
           />
           <img 
             src={image} 
             alt={title} 
-            className="relative w-full h-full object-cover rounded-2xl"
+            className="relative w-full h-full object-cover rounded-2xl ring-2 ring-white/10 group-hover:ring-white/20 transition-all duration-300"
           />
         </div>
       )}
 
-      {/* Text content */}
-      <div className="flex-1 min-w-0">
-        <p className="font-display text-lg md:text-xl font-semibold text-white/95 truncate tracking-wide">
+      {/* Text content with 3D depth */}
+      <div 
+        className="flex-1 min-w-0"
+        style={{ transform: "translateZ(20px)" }}
+      >
+        <p className="font-display text-lg md:text-xl font-semibold text-white/95 truncate tracking-wide transition-all duration-300 group-hover:text-white">
           {title}
         </p>
         {subtitle && (
-          <p className="text-sm text-white/60 truncate mt-0.5">
+          <p className="text-sm text-white/50 truncate mt-0.5 transition-all duration-300 group-hover:text-white/70">
             {subtitle}
           </p>
         )}
       </div>
 
-      {/* Organic arrow */}
-      <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center bg-white/10 backdrop-blur transition-all duration-500 group-hover:bg-white/20 group-hover:translate-x-1">
+      {/* 3D Arrow with depth */}
+      <div 
+        className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center bg-white/5 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/15 ring-1 ring-white/10 group-hover:ring-white/20"
+        style={{ transform: "translateZ(40px)" }}
+      >
         <svg
-          className="w-5 h-5 text-white/80 transition-transform duration-300 group-hover:translate-x-0.5"
+          className="w-5 h-5 text-white/60 transition-all duration-300 group-hover:text-white/90 group-hover:translate-x-0.5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
+      </div>
+
+      {/* Subtle floating particles on hover */}
+      <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 rounded-full animate-particle"
+            style={{
+              background: variant === "whatsapp" 
+                ? "rgba(52, 211, 153, 0.6)" 
+                : "rgba(251, 191, 36, 0.6)",
+              left: `${20 + i * 30}%`,
+              bottom: "20%",
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: "3s",
+            }}
+          />
+        ))}
       </div>
     </a>
   );
