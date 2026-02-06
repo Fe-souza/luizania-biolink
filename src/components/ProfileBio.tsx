@@ -2,7 +2,7 @@ const ProfileBio = () => {
   return (
     <div className="text-center space-y-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
       <h1 className="font-display text-3xl md:text-4xl font-semibold text-gradient-gold tracking-wide">
-        Juliana Klagenberg
+        Ana Maria 
       </h1>
       
       <div className="space-y-2">
@@ -11,7 +11,7 @@ const ProfileBio = () => {
         </p>
         
         <p className="text-muted-foreground text-sm md:text-base max-w-xs mx-auto leading-relaxed">
-          CEO <span className="text-gold font-medium">JK Beauty</span> • Empreendedora há 6+ anos
+          CEO <span className="text-gold font-medium">Beauty</span> • Empreendedora há 6+ anos
           <br />
           Palestrante premiada em SC
           <br />

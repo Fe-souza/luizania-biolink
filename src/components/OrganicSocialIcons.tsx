@@ -1,10 +1,8 @@
-import { Instagram, Facebook, Youtube } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const OrganicSocialIcons = () => {
   const socials = [
-    { icon: Instagram, href: "https://instagram.com/juliana.klagenberg", label: "Instagram" },
-    { icon: Facebook, href: "https://facebook.com/julianaklagenberg", label: "Facebook" },
-    { icon: Youtube, href: "https://youtube.com/@julianaklagenberg", label: "YouTube" },
+    { icon: Instagram, href: "https://www.instagram.com/jhee.s/", label: "Instagram" },
   ];
 
   return (
@@ -26,7 +24,7 @@ const OrganicSocialIcons = () => {
           <div 
             className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
-              background: "linear-gradient(135deg, hsla(45, 90%, 60%, 0.5), hsla(35, 85%, 55%, 0.5))",
+              background: "linear-gradient(135deg, hsla(43, 50%, 55%, 0.4), hsla(0, 0%, 65%, 0.35))",
               filter: "blur(8px)",
             }}
           />

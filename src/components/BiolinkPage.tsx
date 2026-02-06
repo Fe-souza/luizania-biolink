@@ -15,7 +15,7 @@ const BiolinkPage = () => {
     {
       href: "https://wa.me/c/554999499028",
       image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=100&h=100&fit=crop",
-      title: "Loja JK Beauty",
+      title: "Loja Beauty",
       subtitle: "Produtos premium para cílios e sobrancelhas",
       variant: "default" as const,
     },
@@ -72,7 +72,7 @@ const BiolinkPage = () => {
           {/* Footer */}
           <footer className="text-center pt-8 animate-fade-up" style={{ animationDelay: '1s' }}>
             <p className="text-muted-foreground/60 text-xs tracking-widest uppercase">
-              © 2024 JK Beauty • Todos os direitos reservados
+              © 2024 Beauty • Todos os direitos reservados
             </p>
           </footer>
         </div>

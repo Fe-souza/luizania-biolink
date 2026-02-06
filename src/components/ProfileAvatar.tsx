@@ -11,7 +11,7 @@ const ProfileAvatar = () => {
         <div className="p-1 rounded-full bg-background">
           <img
             src={profileImage}
-            alt="Juliana Klagenberg"
+            alt="Ana Maria "
             className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover"
           />
         </div>
