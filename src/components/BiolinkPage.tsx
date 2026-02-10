@@ -22,7 +22,7 @@ const BiolinkPage = () => {
     {
       href: "https://chk.eduzz.com/VWGZBG4V07",
       image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=100&h=100&fit=crop",
-      title: "E-book EDUCADORAS",
+      title: "E-book Educadoras",
       subtitle: "Guia completo para se tornar uma expert",
       variant: "default" as const,
     },

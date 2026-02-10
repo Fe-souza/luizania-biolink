@@ -15,11 +15,11 @@ const FloatingParticles = () => {
 
   useEffect(() => {
     const colors = [
-      "bg-gray-400/20",
-      "bg-gray-300/18",
-      "bg-amber-400/15",
-      "bg-gray-500/20",
-      "bg-amber-300/12",
+      "border-amber-400/25",
+      "border-amber-300/20",
+      "border-yellow-400/18",
+      "border-amber-500/22",
+      "border-yellow-300/15",
     ];
 
     const newParticles: Particle[] = Array.from({ length: 25 }, (_, i) => ({
@@ -40,7 +40,7 @@ const FloatingParticles = () => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className={`absolute rounded-full ${particle.color} blur-sm animate-particle`}
+          className={`absolute rounded-full ${particle.color} border-2 bg-transparent animate-particle`}
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
