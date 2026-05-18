@@ -96,9 +96,20 @@ const OrganicBiolinkPage = () => {
           <OrganicSocialIcons />
 
           {/* Footer */}
-          <footer className="text-center pt-6 animate-fade-up" style={{ animationDelay: '1s' }}>
+          <footer className="text-center pt-6 animate-fade-up space-y-2" style={{ animationDelay: '1s' }}>
             <p className="text-amber-800/40 text-xs tracking-[0.2em] uppercase">
               © 2024 Juliana Klagenberg • Todos os direitos reservados
+            </p>
+            <p className="text-amber-800/40 text-xs tracking-[0.2em] uppercase">
+              Created by{" "}
+              <a
+                href="https://www.instagram.com/fe.code/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-amber-800/70 transition-colors underline-offset-2 hover:underline"
+              >
+                Fecode
+              </a>
             </p>
           </footer>
         </div>
