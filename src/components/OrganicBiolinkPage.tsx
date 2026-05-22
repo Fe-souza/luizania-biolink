@@ -38,9 +38,10 @@ const OrganicBiolinkPage = () => {
       variant: "whatsapp" as const,
     },
     {
+      href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Rua Oti, 213 - Pardais, Quedas do Iguaçu - PR")}`,
       icon: <MapPin className="w-7 h-7" strokeWidth={2} />,
       title: "Atendimento presencial",
-      subtitle: "Consulte horários e localização",
+      subtitle: "Rua Oti, 213 — Pardais, Quedas do Iguaçu - PR",
       variant: "info" as const,
     },
   ];
