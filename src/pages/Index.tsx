@@ -1,7 +1,7 @@
-import OrganicBiolinkPageV3 from "@/components/OrganicBiolinkPageV3";
+import OrganicBiolinkPage from "@/components/OrganicBiolinkPage";
 
 const Index = () => {
-  return <OrganicBiolinkPageV3 />;
+  return <OrganicBiolinkPage />;
 };
 
 export default Index;

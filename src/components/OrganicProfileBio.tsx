@@ -6,11 +6,11 @@ const OrganicProfileBio = () => {
         style={{
           fontFamily: "'Gwendolyn', cursive",
           background:
-            "linear-gradient(135deg, #6b4f15 0%, #b8860b 18%, #d4af37 38%, #c19529 50%, #d4af37 62%, #b8860b 82%, #5a4112 100%)",
+            "linear-gradient(135deg, #4a4a4d 0%, #6b6b6f 18%, #9c9ca0 38%, #888890 50%, #9c9ca0 62%, #6b6b6f 82%, #3d3d40 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
-          filter: "drop-shadow(0 1px 0 rgba(255,255,255,0.5)) drop-shadow(0 0 18px rgba(212,175,55,0.25))",
+          filter: "drop-shadow(0 1px 0 rgba(255,255,255,0.5)) drop-shadow(0 0 18px rgba(160,160,168,0.25))",
         }}
       >
         Luizania
@@ -39,7 +39,7 @@ const OrganicProfileBio = () => {
         </p>
       </div>
 
-      {/* Organic divider - metallic */}
+      {/* Organic divider - metallic gold */}
       <div className="flex items-center justify-center gap-4 pt-3">
         <div
           className="w-16 h-[2px] rounded-full"

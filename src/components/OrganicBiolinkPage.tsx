@@ -16,13 +16,6 @@ const OrganicBiolinkPage = () => {
       subtitle: "Unhas & sobrancelhas no WhatsApp",
       variant: "featured" as const,
     },
-    // {
-    //   href: `${WHATSAPP_BASE}?text=${encodeURIComponent("Olá Luizania! Quero saber mais sobre o curso.")}`,
-    //   icon: <GraduationCap className="w-7 h-7" strokeWidth={2} />,
-    //   title: "Curso Nails & Sobrancelhas",
-    //   subtitle: "Aprenda comigo — saiba mais",
-    //   variant: "whatsapp" as const,
-    // },
     {
       href: `${WHATSAPP_BASE}?text=${encodeURIComponent("Olá Luizania! Quero conhecer suas semijoias.")}`,
       icon: <Gem className="w-7 h-7" strokeWidth={2} />,
@@ -47,9 +40,7 @@ const OrganicBiolinkPage = () => {
   ];
 
   return (
-    <div
-      className="min-h-screen relative overflow-hidden bg-white"
-    >
+    <div className="min-h-screen relative overflow-hidden bg-white">
       {/* Fluid animated background */}
       <FluidBlobs />
       <FloatingParticles />
@@ -103,16 +94,16 @@ const OrganicBiolinkPage = () => {
                 />
               </a>
             </div>
-            <p className="text-amber-800/60 text-xs tracking-[0.2em] uppercase">
+            <p className="text-black text-xs tracking-[0.2em] uppercase">
               © 2026 Luizania • Todos os direitos reservados
             </p>
-            <p className="text-amber-800/60 text-xs tracking-[0.2em] uppercase">
+            <p className="text-black text-xs tracking-[0.2em] uppercase">
               Created by{" "}
               <a
                 href="https://www.instagram.com/fe.code/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-amber-900 transition-colors underline-offset-2 hover:underline"
+                className="text-black hover:text-black/80 transition-colors underline-offset-2 hover:underline"
               >
                 Fecode
               </a>
