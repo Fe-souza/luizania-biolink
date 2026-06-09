@@ -15,11 +15,11 @@ const FloatingParticles = () => {
 
   useEffect(() => {
     const colors = [
-      "border-amber-400/40",
-      "border-amber-300/35",
-      "border-yellow-400/30",
-      "border-amber-500/40",
-      "border-white/20",
+      "border-amber-600/35",
+      "border-amber-500/30",
+      "border-yellow-600/25",
+      "border-amber-700/35",
+      "border-stone-400/25",
     ];
 
     const newParticles: Particle[] = Array.from({ length: 25 }, (_, i) => ({

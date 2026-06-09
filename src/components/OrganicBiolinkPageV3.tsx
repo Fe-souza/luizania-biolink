@@ -1,13 +1,13 @@
 import { Calendar, MapPin, Gem, Leaf, Instagram } from "lucide-react";
 import FloatingParticles from "./FloatingParticles";
 import FluidBlobs from "./FluidBlobs";
-import OrganicProfileAvatar from "./OrganicProfileAvatar";
-import OrganicProfileBio from "./OrganicProfileBio";
-import OrganicLinkCard from "./OrganicLinkCard";
+import OrganicProfileAvatarV3 from "./OrganicProfileAvatarV3";
+import OrganicProfileBioV3 from "./OrganicProfileBioV3";
+import OrganicLinkCardV3 from "./OrganicLinkCardV3";
 
 const WHATSAPP_BASE = "https://wa.me/55046988250313";
 
-const OrganicBiolinkPage = () => {
+const OrganicBiolinkPageV3 = () => {
   const links = [
     {
       href: `${WHATSAPP_BASE}?text=${encodeURIComponent("Olá Luizania! Quero agendar um horário.")}`,
@@ -16,13 +16,6 @@ const OrganicBiolinkPage = () => {
       subtitle: "Unhas & sobrancelhas no WhatsApp",
       variant: "featured" as const,
     },
-    // {
-    //   href: `${WHATSAPP_BASE}?text=${encodeURIComponent("Olá Luizania! Quero saber mais sobre o curso.")}`,
-    //   icon: <GraduationCap className="w-7 h-7" strokeWidth={2} />,
-    //   title: "Curso Nails & Sobrancelhas",
-    //   subtitle: "Aprenda comigo — saiba mais",
-    //   variant: "whatsapp" as const,
-    // },
     {
       href: `${WHATSAPP_BASE}?text=${encodeURIComponent("Olá Luizania! Quero conhecer suas semijoias.")}`,
       icon: <Gem className="w-7 h-7" strokeWidth={2} />,
@@ -47,9 +40,7 @@ const OrganicBiolinkPage = () => {
   ];
 
   return (
-    <div
-      className="min-h-screen relative overflow-hidden bg-white"
-    >
+    <div className="min-h-screen relative overflow-hidden bg-white">
       {/* Fluid animated background */}
       <FluidBlobs />
       <FloatingParticles />
@@ -59,14 +50,14 @@ const OrganicBiolinkPage = () => {
         <div className="w-full max-w-md space-y-10">
           {/* Profile section */}
           <div className="flex flex-col items-center space-y-8">
-            <OrganicProfileAvatar />
-            <OrganicProfileBio />
+            <OrganicProfileAvatarV3 />
+            <OrganicProfileBioV3 />
           </div>
 
           {/* Links section */}
           <div className="space-y-4">
             {links.map((link, index) => (
-              <OrganicLinkCard
+              <OrganicLinkCardV3
                 key={link.title}
                 href={link.href}
                 icon={link.icon}
@@ -124,4 +115,4 @@ const OrganicBiolinkPage = () => {
   );
 };
 
-export default OrganicBiolinkPage;
+export default OrganicBiolinkPageV3;

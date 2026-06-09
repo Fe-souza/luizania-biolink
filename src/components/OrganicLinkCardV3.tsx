@@ -1,6 +1,6 @@
 import { useState, useRef, MouseEvent, ReactNode } from "react";
 
-interface OrganicLinkCardProps {
+interface OrganicLinkCardV3Props {
   href?: string;
   icon?: ReactNode;
   title: string;
@@ -9,14 +9,14 @@ interface OrganicLinkCardProps {
   delay?: number;
 }
 
-const OrganicLinkCard = ({
+const OrganicLinkCardV3 = ({
   href,
   icon,
   title,
   subtitle,
   variant = "default",
   delay = 0
-}: OrganicLinkCardProps) => {
+}: OrganicLinkCardV3Props) => {
   const cardRef = useRef<HTMLElement>(null);
   const [transform, setTransform] = useState("");
   const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
@@ -49,53 +49,19 @@ const OrganicLinkCard = ({
   const metallicGold =
     "linear-gradient(135deg, #f0e6c2 0%, #f9f0d4 22%, #fdf8e8 48%, #faf3dc 58%, #f5ecc9 78%, #ecdfb3 100%)";
 
-  const getVariantStyles = () => {
-    switch (variant) {
-      case "featured":
-        return {
-          bg: "bg-white/95",
-          border: "border-amber-400/70",
-          glow: "shadow-[0_20px_50px_-15px_rgba(212,175,55,0.55)]",
-          iconBg: "text-black",
-          iconStyle: { background: metallicGold },
-          accentColor: "rgba(212,175,55,0.45)",
-        };
-      case "whatsapp":
-        return {
-          bg: "bg-white/95",
-          border: "border-amber-400/60",
-          glow: "shadow-[0_20px_50px_-15px_rgba(212,175,55,0.45)]",
-          iconBg: "text-black",
-          iconStyle: { background: metallicGold },
-          accentColor: "rgba(212,175,55,0.4)",
-        };
-      case "info":
-        return {
-          bg: "bg-white/95",
-          border: "border-amber-400/60",
-          glow: "shadow-[0_20px_50px_-15px_rgba(212,175,55,0.4)]",
-          iconBg: "text-black",
-          iconStyle: { background: metallicGold },
-          accentColor: "rgba(212,175,55,0.4)",
-        };
-      default:
-        return {
-          bg: "bg-white/95",
-          border: "border-amber-400/60",
-          glow: "shadow-[0_20px_50px_-15px_rgba(212,175,55,0.4)]",
-          iconBg: "text-black",
-          iconStyle: { background: metallicGold },
-          accentColor: "rgba(212,175,55,0.4)",
-        };
-    }
+  const styles = {
+    bg: "bg-white/95",
+    border: "border-black/70",
+    glow: "shadow-[0_20px_50px_-15px_rgba(0,0,0,0.35)]",
+    iconStyle: { background: metallicGold },
+    accentColor: "rgba(0,0,0,0.25)",
   };
 
-  const styles = getVariantStyles();
   const isClickable = !!href;
 
   const sharedClasses = `
     group relative w-full flex items-center gap-4 p-5
-    backdrop-blur-2xl rounded-3xl border-2
+    backdrop-blur-2xl rounded-3xl border
     transition-all duration-200 ease-out
     animate-fade-up
     ${styles.bg} ${styles.border}
@@ -245,4 +211,4 @@ const OrganicLinkCard = ({
   );
 };
 
-export default OrganicLinkCard;
+export default OrganicLinkCardV3;
