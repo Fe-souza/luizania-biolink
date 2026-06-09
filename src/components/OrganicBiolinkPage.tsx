@@ -89,8 +89,9 @@ const OrganicBiolinkPage = () => {
                 }}
               >
                 <Instagram
-                  className="w-5 h-5 text-amber-700 group-hover:text-amber-800 transition-colors"
+                  className="w-5 h-5 transition-colors"
                   strokeWidth={2}
+                  style={{ color: "#c89b2a" }}
                 />
               </a>
             </div>

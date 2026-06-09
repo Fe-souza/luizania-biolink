@@ -34,8 +34,6 @@ const OrganicProfileBio = () => {
           <span className="text-amber-600">✨</span> Nails Designer
           <br />
           <span className="text-amber-600">✨</span> Designer de Sobrancelhas
-          <br />
-          <span className="italic text-amber-700/90">👇 Agende seu horário</span>
         </p>
       </div>
 
