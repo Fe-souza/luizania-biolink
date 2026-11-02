@@ -13,6 +13,18 @@
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- GA4: robôs, navegadores automatizados, localhost/prévias e o aparelho do dono (?nogo; ?nogo=0 desfaz) não entram nos relatórios -->
+    <script>
+      (function () {
+        var off = navigator.webdriver || /bot|crawl|spider|slurp|headless|lighthouse|pagespeed|phantom|selenium|puppeteer|playwright/i.test(navigator.userAgent) || /^(localhost|127\.|0\.0\.0\.0|\[::1\])|\.local$|--[^.]+\.netlify\.app$/.test(location.hostname);
+        try {
+          var m = location.search.match(/[?&]nogo(?:=([^&]*))?/);
+          if (m) m[1] === "0" ? localStorage.removeItem("ga_nogo") : localStorage.setItem("ga_nogo", "1");
+          if (localStorage.getItem("ga_nogo")) off = true;
+        } catch (e) {}
+        if (off) ["G-BS5K96BEW7"].forEach(function (id) { window["ga-disable-" + id] = true; });
+      })();
+    </script>
     <!-- Google tag (gtag.js) — propriedade geral dos cartões; `cliente` separa nos relatórios -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BS5K96BEW7"></script>
     <script>
